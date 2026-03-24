@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: osmAPI Models API
+  description: >-
+    Endpoint for listing all available AI models accessible through the osmAPI
+    gateway, including pricing, context length, supported parameters, provider
+    details, and deprecation status.
+  version: 1.0.0
+  contact:
+    name: osmAPI
+    url: https://www.osmapi.com/
+servers:
+  - url: https://api.osmapi.com/v1
+    description: Production
+paths:
+  /models:
+    get:
+      operationId: listModels
+      summary: List available models
+      description: >-
+        Returns a list of all available AI models with detailed information
+        about each model including pricing, capabilities, and provider details.
+      parameters:
+        - name: include_deactivated
+          in: query
+          schema:
+            type: string
+          description: Include deactivated models in the response
+        - name: exclude_deprecated
+          in: query
+          schema:
+            type: string
+          description: Exclude deprecated models from the response
+      responses:
+        '200':
+          description: Successful response with model list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelsResponse'
+components:
+  schemas:
+    ModelsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        aliases:
+          type: array
+          items:
+            type: string
+        created:
+          type: number
+        description:
+          type: string
+        family:
+          type: string
+        architecture:
+          type: object
+          properties:
+            input_modalities:
+              type: array
+              items:
+                type: string
+            output_modalities:
+              type: array
+              items:
+                type: string
+            tokenizer:
+              type: string
+        top_provider:
+          type: object
+          properties:
+            is_moderated:
+              type: boolean
+        providers:
+          type: array
+          items:
+            type: object
+        pricing:
+          type: object
+          properties:
+            prompt:
+              type: string
+            completion:
+              type: string
+            image:
+              type: string
+            request:
+              type: string
+            caching:
+              type: string
+            web_search:
+              type: string
+        context_length:
+          type: integer
+        per_request_limits:
+          type: object
+        supported_parameters:
+          type: array
+          items:
+            type: string
+        json_output:
+          type: boolean
+        structured_outputs:
+          type: boolean
+        free:
+          type: boolean
+        deprecated_at:
+          type: string
+        deactivated_at:
+          type: string
+        stability:
+          type: string

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/osmapi/refs/heads/main/json-schema/osmapi-chat-completion-schema.json",
+  "title": "osmAPI Chat Completion Response",
+  "description": "Schema for an osmAPI chat completion response object",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the completion"
+    },
+    "object": {
+      "type": "string",
+      "description": "Object type identifier"
+    },
+    "created": {
+      "type": "integer",
+      "description": "Unix timestamp of creation"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model used for the completion"
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              },
+              "reasoning": {
+                "type": "string"
+              },
+              "tool_calls": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "finish_reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "prompt_tokens": {
+          "type": "integer"
+        },
+        "completion_tokens": {
+          "type": "integer"
+        },
+        "total_tokens": {
+          "type": "integer"
+        },
+        "reasoning_tokens": {
+          "type": "integer"
+        },
+        "cost_usd_total": {
+          "type": "number"
+        },
+        "cost_usd_input": {
+          "type": "number"
+        },
+        "cost_usd_output": {
+          "type": "number"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "requested_model": {
+          "type": "string"
+        },
+        "used_model": {
+          "type": "string"
+        },
+        "used_provider": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

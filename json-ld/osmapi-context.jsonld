@@ -1,0 +1,34 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "osmapi": "https://api.osmapi.com/v1/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "provider": "schema:provider",
+    "model": {
+      "@id": "osmapi:Model",
+      "@type": "@id"
+    },
+    "chatCompletion": {
+      "@id": "osmapi:ChatCompletion",
+      "@type": "@id"
+    },
+    "message": {
+      "@id": "osmapi:Message",
+      "@type": "@id"
+    },
+    "usage": {
+      "@id": "osmapi:Usage",
+      "@type": "@id"
+    },
+    "pricing": {
+      "@id": "osmapi:Pricing",
+      "@type": "@id"
+    },
+    "metadata": {
+      "@id": "osmapi:Metadata",
+      "@type": "@id"
+    }
+  }
+}

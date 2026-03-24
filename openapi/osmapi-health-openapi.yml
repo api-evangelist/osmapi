@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: osmAPI Health API
+  description: >-
+    Health check endpoint for the osmAPI service, reporting operational status
+    and connectivity to Redis and database dependencies.
+  version: 1.0.0
+  contact:
+    name: osmAPI
+    url: https://www.osmapi.com/
+servers:
+  - url: https://api.osmapi.com
+    description: Production
+paths:
+  /:
+    get:
+      operationId: healthCheck
+      summary: Health check
+      description: >-
+        Returns the health status of the osmAPI service including connectivity
+        to Redis and database dependencies.
+      parameters:
+        - name: skip
+          in: query
+          schema:
+            type: string
+          description: Comma-separated list of health checks to skip (redis, database)
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Service is unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        version:
+          type: string
+        health:
+          type: object
+          properties:
+            status:
+              type: string
+            redis:
+              type: object
+              properties:
+                connected:
+                  type: boolean
+                error:
+                  type: string
+            database:
+              type: object
+              properties:
+                connected:
+                  type: boolean
+                error:
+                  type: string

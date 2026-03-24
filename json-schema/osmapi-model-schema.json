@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/osmapi/refs/heads/main/json-schema/osmapi-model-schema.json",
+  "title": "osmAPI Model",
+  "description": "Schema for an osmAPI model object",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique model identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable model name"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Alternative identifiers for the model"
+    },
+    "created": {
+      "type": "number",
+      "description": "Unix timestamp of model creation"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the model"
+    },
+    "family": {
+      "type": "string",
+      "description": "Model family grouping"
+    },
+    "architecture": {
+      "type": "object",
+      "properties": {
+        "input_modalities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output_modalities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tokenizer": {
+          "type": "string"
+        }
+      }
+    },
+    "top_provider": {
+      "type": "object",
+      "properties": {
+        "is_moderated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "completion": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "request": {
+          "type": "string"
+        },
+        "caching": {
+          "type": "string"
+        },
+        "web_search": {
+          "type": "string"
+        }
+      }
+    },
+    "context_length": {
+      "type": "integer",
+      "description": "Maximum context window size in tokens"
+    },
+    "per_request_limits": {
+      "type": "object"
+    },
+    "supported_parameters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "json_output": {
+      "type": "boolean"
+    },
+    "structured_outputs": {
+      "type": "boolean"
+    },
+    "free": {
+      "type": "boolean"
+    },
+    "deprecated_at": {
+      "type": "string"
+    },
+    "deactivated_at": {
+      "type": "string"
+    },
+    "stability": {
+      "type": "string"
+    }
+  }
+}

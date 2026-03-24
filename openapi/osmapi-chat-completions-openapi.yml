@@ -1,0 +1,244 @@
+openapi: 3.1.0
+info:
+  title: osmAPI Chat Completions API
+  description: >-
+    OpenAI-compatible chat completions endpoint routed through osmAPI's unified
+    AI gateway. Supports multi-turn conversations, function calling, streaming,
+    structured output, web search, response healing, and smart routing across
+    OpenAI, Anthropic, Google, and 14+ LLM providers.
+  version: 1.0.0
+  contact:
+    name: osmAPI
+    url: https://www.osmapi.com/
+servers:
+  - url: https://api.osmapi.com/v1
+    description: Production
+security:
+  - bearerAuth: []
+paths:
+  /chat/completions:
+    post:
+      operationId: createChatCompletion
+      summary: Create chat completion
+      description: >-
+        Sends a chat completion request to the specified model through osmAPI's
+        smart routing system. Compatible with the OpenAI chat completions format.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+      responses:
+        '200':
+          description: Successful completion response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token using osmAPI key (osmint_XXXXXXXXXXXXXXXX)
+  schemas:
+    ChatCompletionRequest:
+      type: object
+      required:
+        - model
+        - messages
+      properties:
+        model:
+          type: string
+          description: The AI model identifier or "auto" for smart routing
+          examples:
+            - gpt-4o
+            - auto
+            - openai/gpt-4o
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+          description: Conversation history with role-content pairs
+        temperature:
+          type: number
+          nullable: true
+          description: Controls response randomness (0-2)
+        max_tokens:
+          type: integer
+          nullable: true
+          description: Maximum number of tokens to generate
+        top_p:
+          type: number
+          nullable: true
+          description: Nucleus sampling parameter
+        frequency_penalty:
+          type: number
+          nullable: true
+          description: Reduces token repetition
+        presence_penalty:
+          type: number
+          nullable: true
+          description: Encourages new topics
+        stream:
+          type: boolean
+          default: false
+          description: Enable streaming responses
+        response_format:
+          type: object
+          description: Specifies output structure (JSON schema support)
+        tools:
+          type: array
+          items:
+            type: object
+          description: Available functions for model invocation
+        tool_choice:
+          oneOf:
+            - type: string
+            - type: object
+          description: Tool selection strategy (required, none, auto)
+        reasoning_effort:
+          type: string
+          nullable: true
+          enum:
+            - minimal
+            - low
+            - medium
+            - high
+          description: Reasoning intensity for supported models
+        free_models_only:
+          type: boolean
+          description: Routes only to cost-free models
+        no_reasoning:
+          type: boolean
+          description: Excludes reasoning models from routing
+        web_search:
+          type: boolean
+          description: Enables real-time web search grounding
+        plugins:
+          type: array
+          items:
+            type: string
+          description: Extended functionality plugins (e.g., response-healing)
+    Message:
+      type: object
+      required:
+        - role
+        - content
+      properties:
+        role:
+          type: string
+          enum:
+            - system
+            - user
+            - assistant
+            - tool
+            - function
+        content:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: object
+        name:
+          type: string
+        tool_call_id:
+          type: string
+        tool_calls:
+          type: array
+          items:
+            type: object
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Choice'
+        usage:
+          $ref: '#/components/schemas/Usage'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+    Choice:
+      type: object
+      properties:
+        index:
+          type: integer
+        message:
+          type: object
+          properties:
+            role:
+              type: string
+            content:
+              type: string
+            reasoning:
+              type: string
+            tool_calls:
+              type: array
+              items:
+                type: object
+            images:
+              type: array
+              items:
+                type: string
+        finish_reason:
+          type: string
+    Usage:
+      type: object
+      properties:
+        prompt_tokens:
+          type: integer
+        completion_tokens:
+          type: integer
+        total_tokens:
+          type: integer
+        reasoning_tokens:
+          type: integer
+        cost_usd_total:
+          type: number
+        cost_usd_input:
+          type: number
+        cost_usd_output:
+          type: number
+    Metadata:
+      type: object
+      properties:
+        requested_model:
+          type: string
+        used_model:
+          type: string
+        used_provider:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string

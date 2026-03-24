@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: osmAPI Anthropic Messages API
+  description: >-
+    Anthropic-compatible messages endpoint routed through osmAPI's unified AI
+    gateway. Supports the native Anthropic message format including system
+    prompts, extended thinking, tool use, and streaming.
+  version: 1.0.0
+  contact:
+    name: osmAPI
+    url: https://www.osmapi.com/
+servers:
+  - url: https://api.osmapi.com/v1
+    description: Production
+security:
+  - bearerAuth: []
+paths:
+  /messages:
+    post:
+      operationId: createMessage
+      summary: Create a message
+      description: >-
+        Sends a message request using the Anthropic-compatible format through
+        osmAPI's smart routing system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageRequest'
+      responses:
+        '200':
+          description: Successful message response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token using osmAPI key (osmint_XXXXXXXXXXXXXXXX)
+  schemas:
+    MessageRequest:
+      type: object
+      required:
+        - model
+        - messages
+        - max_tokens
+      properties:
+        model:
+          type: string
+          description: The model identifier
+          examples:
+            - claude-3-5-sonnet-20241022
+        messages:
+          type: array
+          items:
+            type: object
+            required:
+              - role
+              - content
+            properties:
+              role:
+                type: string
+                enum:
+                  - user
+                  - assistant
+                  - tool
+                  - function
+              content:
+                oneOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: object
+          description: Conversation message history
+        max_tokens:
+          type: integer
+          minimum: 1
+          description: Maximum tokens to generate
+        system:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: object
+          description: System instructions
+        temperature:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Sampling temperature
+        tools:
+          type: array
+          items:
+            type: object
+          description: Available tools for model use
+        stream:
+          type: boolean
+          default: false
+          description: Enable response streaming
+        tool_choice:
+          type: object
+          description: Tool selection preferences
+        stop_sequences:
+          type: array
+          items:
+            type: string
+          description: Custom stop text sequences
+        top_p:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Nucleus sampling parameter
+        top_k:
+          type: integer
+          description: Top-k sampling parameter
+        thinking:
+          type: object
+          description: Extended thinking configuration
+        metadata:
+          type: object
+          description: Request context metadata
+        service_tier:
+          type: string
+          description: Service tier specification
+    MessageResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: message
+        role:
+          type: string
+          const: assistant
+        model:
+          type: string
+        content:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              text:
+                type: string
+              thinking:
+                type: string
+        stop_reason:
+          type: string
+        usage:
+          type: object
+          properties:
+            input_tokens:
+              type: integer
+            output_tokens:
+              type: integer
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
