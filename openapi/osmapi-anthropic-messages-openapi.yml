@@ -47,6 +47,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Messages
 components:
   securitySchemes:
     bearerAuth:
@@ -183,3 +185,5 @@ components:
               type: string
             code:
               type: string
+tags:
+  - name: Messages
