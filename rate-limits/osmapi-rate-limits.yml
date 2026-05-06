@@ -4,102 +4,61 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: osmAPI
 providerId: osmapi
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - AI
-  - Anthropic
-  - Gateway
-  - LLM
-  - OpenAI
-  - Routing
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the osmAPI API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
+  - AI
+  - LLM
+  - Gateway
+description: osmAPI applies per-API-key rate limits with separate ceilings for free and paid
+  models. Free models share a 200 rpm budget; paid models default to 1000 rpm per key with
+  Enterprise able to negotiate higher. Real throughput is also bounded by upstream provider
+  capacity and account credit balance. Free model responses include rate-limit telemetry
+  headers.
+sources:
+  - https://docs.osmapi.com/resources/rate-limits
 headers:
   limit: X-RateLimit-Limit
   remaining: X-RateLimit-Remaining
   reset: X-RateLimit-Reset
   retryAfter: Retry-After
-  policy: RateLimit-Policy
 responseCodes:
   throttled: 429
   quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
+  - name: Free Models - Default
     scope: api-key
     metric: requests_per_minute
-    limit: 10
-    burst: 20
+    limit: 200
     timeFrame: minute
-    applies:
-      - osmAPI Chat Completions API
-      - osmAPI Anthropic Messages API
-      - osmAPI Models API
-      - osmAPI Health API
-  - tier: free
-    name: Free Tier Monthly Quota
+    notes: Applies to all users on free models. Window resets every 60 seconds.
+  - name: Paid Models - Default
     scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - osmAPI Chat Completions API
-      - osmAPI Anthropic Messages API
-      - osmAPI Models API
-      - osmAPI Health API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - osmAPI Chat Completions API
-      - osmAPI Anthropic Messages API
-      - osmAPI Models API
-      - osmAPI Health API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - osmAPI Chat Completions API
-      - osmAPI Anthropic Messages API
-      - osmAPI Models API
-      - osmAPI Health API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
     metric: requests_per_minute
     limit: 1000
-    burst: 5000
     timeFrame: minute
-    applies:
-      - osmAPI Chat Completions API
-      - osmAPI Anthropic Messages API
-      - osmAPI Models API
-      - osmAPI Health API
+    notes: Default for paid model access. Actual throughput also bounded by credit balance
+      and upstream provider limits.
+  - name: Enterprise - Negotiated
+    scope: account
+    metric: requests_per_minute
+    limit: contact sales for higher than 1000 rpm
+    notes: Enterprise customers can negotiate higher per-key throughput.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Backoff
+    description: When 429 is returned, clients should pause and retry using exponential backoff,
+      honoring the Retry-After header value.
+  - name: Header-Driven Throttling
+    description: Free model responses include X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset
+      and Retry-After. Clients should read these headers to pace requests and avoid throttling.
+  - name: Free vs Paid Routing
+    description: osmAPI recommends reserving free models for development and routing production
+      workloads to paid models for higher throughput.
+  - name: Upstream Provider Limits
+    description: Even within osmAPI's published per-key limits, upstream provider rate limits
+      (OpenAI, Anthropic, Google, Groq, etc.) and account credit balance can further bound
+      throughput.
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
