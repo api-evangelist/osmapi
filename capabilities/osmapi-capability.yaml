@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: osmAPI Anthropic Messages API
+  description: Anthropic-compatible messages endpoint routed through osmAPI's unified AI gateway. Supports the native Anthropic
+    message format including system prompts, extended thinking, tool use, and streaming.
+  tags:
+  - Osmapi
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: osmapi
+    baseUri: https://api.osmapi.com/v1
+    description: osmAPI Anthropic Messages API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{OSMAPI_TOKEN}}'
+    resources:
+    - name: messages
+      path: /messages
+      operations:
+      - name: createmessage
+        method: POST
+        description: Create a message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: osmapi-rest
+    description: REST adapter for osmAPI Anthropic Messages API.
+    resources:
+    - path: /messages
+      name: createmessage
+      operations:
+      - method: POST
+        name: createmessage
+        description: Create a message
+        call: osmapi.createmessage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: osmapi-mcp
+    transport: http
+    description: MCP adapter for osmAPI Anthropic Messages API for AI agent use.
+    tools:
+    - name: createmessage
+      description: Create a message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: osmapi.createmessage
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    OSMAPI_TOKEN: OSMAPI_TOKEN
