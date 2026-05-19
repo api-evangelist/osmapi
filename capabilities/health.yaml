@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: osmAPI Health API
+  description: 'osmAPI Health API. 1 operations. Lead operation: Health check. Self-contained Naftiko capability covering
+    one Osmapi business surface.'
+  tags:
+  - Osmapi
+  - osmAPI Health API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OSMAPI_API_KEY: OSMAPI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: health
+    baseUri: https://api.osmapi.com
+    description: osmAPI Health API business capability. Self-contained, no shared references.
+    resources:
+    - name: root
+      path: /
+      operations:
+      - name: healthcheck
+        method: GET
+        description: Health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: skip
+          in: query
+          type: string
+          description: Comma-separated list of health checks to skip (redis, database)
+  exposes:
+  - type: rest
+    namespace: health-rest
+    port: 8080
+    description: REST adapter for osmAPI Health API. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1
+      name: root
+      description: REST surface for root.
+      operations:
+      - method: GET
+        name: healthcheck
+        description: Health check
+        call: health.healthcheck
+        with:
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for osmAPI Health API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: health-check
+      description: Health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: health.healthcheck
+      with:
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
