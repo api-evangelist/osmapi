@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "osmAPI Anthropic Messages API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.osmapi.com/v1/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a message request using the Anthropic-compatible format through osmAPI's smart routing system."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

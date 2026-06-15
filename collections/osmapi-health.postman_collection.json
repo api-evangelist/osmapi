@@ -1,0 +1,143 @@
+{
+  "item": [
+    {
+      "id": "00d3c140-7a1f-4964-9d28-ed0abe817e8f",
+      "name": "Health check",
+      "request": {
+        "name": "Health check",
+        "description": {
+          "content": "Returns the health status of the osmAPI service including connectivity to Redis and database dependencies.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "skip",
+              "value": "<string>",
+              "description": "Comma-separated list of health checks to skip (redis, database)"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "71664d0b-a4b8-4204-9605-46132d818b90",
+          "name": "Service is healthy",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"string\",\n  \"version\": \"string\",\n  \"health\": {\n    \"status\": \"string\",\n    \"redis\": {\n      \"connected\": true,\n      \"error\": \"string\"\n    },\n    \"database\": {\n      \"connected\": false,\n      \"error\": \"string\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "1c2502aa-204c-4d58-8351-f60e7bc8d686",
+          "name": "Service is unavailable",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Service Unavailable",
+          "code": 503,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"string\",\n  \"version\": \"string\",\n  \"health\": {\n    \"status\": \"string\",\n    \"redis\": {\n      \"connected\": true,\n      \"error\": \"string\"\n    },\n    \"database\": {\n      \"connected\": false,\n      \"error\": \"string\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osmapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "46947d69-ada0-4378-8d52-a26b89fe9549",
+    "name": "osmAPI Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Health check endpoint for the osmAPI service, reporting operational status and connectivity to Redis and database dependencies.\n\nContact Support:\n Name: osmAPI",
+      "type": "text/plain"
+    }
+  }
+}

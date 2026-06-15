@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "6d546696-43e0-4ed2-abbd-07fdd7ca5caf",
+      "name": "Messages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e2e2751-1b8f-4618-aaed-2bc4b1ced6fc",
+          "name": "Create a message",
+          "request": {
+            "name": "Create a message",
+            "description": {
+              "content": "Sends a message request using the Anthropic-compatible format through osmAPI's smart routing system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"system\": \"<string>\",\n  \"temperature\": \"<number>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"stream\": false,\n  \"tool_choice\": \"<object>\",\n  \"stop_sequences\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"top_p\": \"<number>\",\n  \"top_k\": \"<integer>\",\n  \"thinking\": \"<object>\",\n  \"metadata\": \"<object>\",\n  \"service_tier\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43e8e7f2-dc8f-4eb4-819d-863f59d7530f",
+              "name": "Successful message response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"system\": \"<string>\",\n  \"temperature\": \"<number>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"stream\": false,\n  \"tool_choice\": \"<object>\",\n  \"stop_sequences\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"top_p\": \"<number>\",\n  \"top_k\": \"<integer>\",\n  \"thinking\": \"<object>\",\n  \"metadata\": \"<object>\",\n  \"service_tier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"string\",\n  \"role\": \"string\",\n  \"model\": \"string\",\n  \"content\": [\n    {\n      \"type\": \"string\",\n      \"text\": \"string\",\n      \"thinking\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"text\": \"string\",\n      \"thinking\": \"string\"\n    }\n  ],\n  \"stop_reason\": \"string\",\n  \"usage\": {\n    \"input_tokens\": 9198,\n    \"output_tokens\": 5378\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "066c2376-c008-443c-aee8-0b0e7f9cffd2",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"system\": \"<string>\",\n  \"temperature\": \"<number>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"stream\": false,\n  \"tool_choice\": \"<object>\",\n  \"stop_sequences\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"top_p\": \"<number>\",\n  \"top_k\": \"<integer>\",\n  \"thinking\": \"<object>\",\n  \"metadata\": \"<object>\",\n  \"service_tier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17de9e4e-65b8-41fe-a165-22218226b8c9",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"system\": \"<string>\",\n  \"temperature\": \"<number>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"stream\": false,\n  \"tool_choice\": \"<object>\",\n  \"stop_sequences\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"top_p\": \"<number>\",\n  \"top_k\": \"<integer>\",\n  \"thinking\": \"<object>\",\n  \"metadata\": \"<object>\",\n  \"service_tier\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osmapi.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f23dec0c-0685-4213-8fcc-7ee64c16a1e3",
+    "name": "osmAPI Anthropic Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Anthropic-compatible messages endpoint routed through osmAPI's unified AI gateway. Supports the native Anthropic message format including system prompts, extended thinking, tool use, and streaming.\n\nContact Support:\n Name: osmAPI",
+      "type": "text/plain"
+    }
+  }
+}

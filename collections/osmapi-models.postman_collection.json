@@ -1,0 +1,124 @@
+{
+  "item": [
+    {
+      "id": "25b7fcf2-baa8-4002-8e54-21ec46e56f1a",
+      "name": "Models",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ae68ca0-c303-4806-9b12-e1e295d58918",
+          "name": "List available models",
+          "request": {
+            "name": "List available models",
+            "description": {
+              "content": "Returns a list of all available AI models with detailed information about each model including pricing, capabilities, and provider details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include_deactivated",
+                  "value": "<string>",
+                  "description": "Include deactivated models in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude_deprecated",
+                  "value": "<string>",
+                  "description": "Exclude deprecated models from the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4088d28-fc28-4164-8bd1-5e0d48b7d910",
+              "name": "Successful response with model list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include_deactivated",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude_deprecated",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": 7138.717228997799,\n      \"description\": \"string\",\n      \"family\": \"string\",\n      \"architecture\": {\n        \"input_modalities\": [\n          \"string\",\n          \"string\"\n        ],\n        \"output_modalities\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tokenizer\": \"string\"\n      },\n      \"top_provider\": {\n        \"is_moderated\": false\n      },\n      \"pricing\": {\n        \"prompt\": \"string\",\n        \"completion\": \"string\",\n        \"image\": \"string\",\n        \"request\": \"string\",\n        \"caching\": \"string\",\n        \"web_search\": \"string\"\n      },\n      \"context_length\": 4187,\n      \"per_request_limits\": {},\n      \"supported_parameters\": [\n        \"string\",\n        \"string\"\n      ],\n      \"json_output\": true,\n      \"structured_outputs\": true,\n      \"free\": true,\n      \"deprecated_at\": \"string\",\n      \"deactivated_at\": \"string\",\n      \"stability\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": 5604.977646562984,\n      \"description\": \"string\",\n      \"family\": \"string\",\n      \"architecture\": {\n        \"input_modalities\": [\n          \"string\",\n          \"string\"\n        ],\n        \"output_modalities\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tokenizer\": \"string\"\n      },\n      \"top_provider\": {\n        \"is_moderated\": false\n      },\n      \"pricing\": {\n        \"prompt\": \"string\",\n        \"completion\": \"string\",\n        \"image\": \"string\",\n        \"request\": \"string\",\n        \"caching\": \"string\",\n        \"web_search\": \"string\"\n      },\n      \"context_length\": 1216,\n      \"per_request_limits\": {},\n      \"supported_parameters\": [\n        \"string\",\n        \"string\"\n      ],\n      \"json_output\": false,\n      \"structured_outputs\": false,\n      \"free\": false,\n      \"deprecated_at\": \"string\",\n      \"deactivated_at\": \"string\",\n      \"stability\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osmapi.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "61fc00aa-89e7-4993-8cfa-89038f62c479",
+    "name": "osmAPI Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Endpoint for listing all available AI models accessible through the osmAPI gateway, including pricing, context length, supported parameters, provider details, and deprecation status.\n\nContact Support:\n Name: osmAPI",
+      "type": "text/plain"
+    }
+  }
+}

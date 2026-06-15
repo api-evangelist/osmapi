@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "344ca07f-b77f-4fc2-8c5a-cb5490eb9d43",
+      "name": "Chat",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ffa6f002-5d40-4891-90a9-d178b822567f",
+          "name": "Create chat completion",
+          "request": {
+            "name": "Create chat completion",
+            "description": {
+              "content": "Sends a chat completion request to the specified model through osmAPI's smart routing system. Compatible with the OpenAI chat completions format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chat",
+                "completions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tool_call_id\": \"<string>\",\n      \"tool_calls\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tool_call_id\": \"<string>\",\n      \"tool_calls\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ],\n  \"temperature\": \"<number>\",\n  \"max_tokens\": \"<integer>\",\n  \"top_p\": \"<number>\",\n  \"frequency_penalty\": \"<number>\",\n  \"presence_penalty\": \"<number>\",\n  \"stream\": false,\n  \"response_format\": \"<object>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tool_choice\": \"<string>\",\n  \"reasoning_effort\": \"<string>\",\n  \"free_models_only\": \"<boolean>\",\n  \"no_reasoning\": \"<boolean>\",\n  \"web_search\": \"<boolean>\",\n  \"plugins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc78caf1-fad3-48a3-bc28-01c837e85ea9",
+              "name": "Successful completion response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"gpt-4o\",\n  \"messages\": [\n    {\n      \"role\": \"function\",\n      \"content\": \"string\",\n      \"name\": \"string\",\n      \"tool_call_id\": \"string\"\n    },\n    {\n      \"role\": \"function\",\n      \"content\": \"string\",\n      \"name\": \"string\",\n      \"tool_call_id\": \"string\"\n    }\n  ],\n  \"temperature\": \"<number>\",\n  \"max_tokens\": \"<integer>\",\n  \"top_p\": \"<number>\",\n  \"frequency_penalty\": \"<number>\",\n  \"presence_penalty\": \"<number>\",\n  \"stream\": false,\n  \"response_format\": \"<object>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tool_choice\": \"<string>\",\n  \"reasoning_effort\": \"<string>\",\n  \"free_models_only\": \"<boolean>\",\n  \"no_reasoning\": \"<boolean>\",\n  \"web_search\": \"<boolean>\",\n  \"plugins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"object\": \"string\",\n  \"created\": 5171,\n  \"model\": \"string\",\n  \"choices\": [\n    {\n      \"index\": 2643,\n      \"message\": {\n        \"role\": \"string\",\n        \"content\": \"string\",\n        \"reasoning\": \"string\",\n        \"images\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"finish_reason\": \"string\"\n    },\n    {\n      \"index\": 4212,\n      \"message\": {\n        \"role\": \"string\",\n        \"content\": \"string\",\n        \"reasoning\": \"string\",\n        \"images\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"finish_reason\": \"string\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 6881,\n    \"completion_tokens\": 3062,\n    \"total_tokens\": 2174,\n    \"reasoning_tokens\": 3249,\n    \"cost_usd_total\": 9743.02048758186,\n    \"cost_usd_input\": 5566.748212539978,\n    \"cost_usd_output\": 7493.178801291057\n  },\n  \"metadata\": {\n    \"requested_model\": \"string\",\n    \"used_model\": \"string\",\n    \"used_provider\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d12a49a-56f9-4608-bcae-10fe739289eb",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"gpt-4o\",\n  \"messages\": [\n    {\n      \"role\": \"function\",\n      \"content\": \"string\",\n      \"name\": \"string\",\n      \"tool_call_id\": \"string\"\n    },\n    {\n      \"role\": \"function\",\n      \"content\": \"string\",\n      \"name\": \"string\",\n      \"tool_call_id\": \"string\"\n    }\n  ],\n  \"temperature\": \"<number>\",\n  \"max_tokens\": \"<integer>\",\n  \"top_p\": \"<number>\",\n  \"frequency_penalty\": \"<number>\",\n  \"presence_penalty\": \"<number>\",\n  \"stream\": false,\n  \"response_format\": \"<object>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tool_choice\": \"<string>\",\n  \"reasoning_effort\": \"<string>\",\n  \"free_models_only\": \"<boolean>\",\n  \"no_reasoning\": \"<boolean>\",\n  \"web_search\": \"<boolean>\",\n  \"plugins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6dd25d1d-f50e-44bb-8c81-493f33ce5076",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"gpt-4o\",\n  \"messages\": [\n    {\n      \"role\": \"function\",\n      \"content\": \"string\",\n      \"name\": \"string\",\n      \"tool_call_id\": \"string\"\n    },\n    {\n      \"role\": \"function\",\n      \"content\": \"string\",\n      \"name\": \"string\",\n      \"tool_call_id\": \"string\"\n    }\n  ],\n  \"temperature\": \"<number>\",\n  \"max_tokens\": \"<integer>\",\n  \"top_p\": \"<number>\",\n  \"frequency_penalty\": \"<number>\",\n  \"presence_penalty\": \"<number>\",\n  \"stream\": false,\n  \"response_format\": \"<object>\",\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"tool_choice\": \"<string>\",\n  \"reasoning_effort\": \"<string>\",\n  \"free_models_only\": \"<boolean>\",\n  \"no_reasoning\": \"<boolean>\",\n  \"web_search\": \"<boolean>\",\n  \"plugins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"message\": \"string\",\n    \"type\": \"string\",\n    \"code\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osmapi.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3905e084-6ca6-4bae-a2e0-a1955aecf796",
+    "name": "osmAPI Chat Completions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenAI-compatible chat completions endpoint routed through osmAPI's unified AI gateway. Supports multi-turn conversations, function calling, streaming, structured output, web search, response healing, and smart routing across OpenAI, Anthropic, Google, and 14+ LLM providers.\n\nContact Support:\n Name: osmAPI",
+      "type": "text/plain"
+    }
+  }
+}

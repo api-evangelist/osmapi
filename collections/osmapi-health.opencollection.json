@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "osmAPI Health API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health check",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.osmapi.com/",
+        "params": [
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query",
+            "description": "Comma-separated list of health checks to skip (redis, database)"
+          }
+        ]
+      },
+      "docs": "Returns the health status of the osmAPI service including connectivity to Redis and database dependencies."
+    }
+  ],
+  "bundled": true
+}

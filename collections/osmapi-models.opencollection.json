@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "osmAPI Models API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.osmapi.com/v1/models",
+            "params": [
+              {
+                "name": "include_deactivated",
+                "value": "",
+                "type": "query",
+                "description": "Include deactivated models in the response"
+              },
+              {
+                "name": "exclude_deprecated",
+                "value": "",
+                "type": "query",
+                "description": "Exclude deprecated models from the response"
+              }
+            ]
+          },
+          "docs": "Returns a list of all available AI models with detailed information about each model including pricing, capabilities, and provider details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
