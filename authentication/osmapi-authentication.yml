@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/osmapi-anthropic-messages-openapi.yml, openapi/osmapi-chat-completions-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer token using osmAPI key (osmint_XXXXXXXXXXXXXXXX)
+  sources:
+  - openapi/osmapi-anthropic-messages-openapi.yml
+  - openapi/osmapi-chat-completions-openapi.yml
