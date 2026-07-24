@@ -1,30 +1,30 @@
 openapi: 3.1.0
 info:
-  title: osmAPI Health API
-  description: >-
-    Health check endpoint for the osmAPI service, reporting operational status
-    and connectivity to Redis and database dependencies.
+  title: osmAPI Anthropic Messages Chat OsmAPI Health API API
+  description: Anthropic-compatible messages endpoint routed through osmAPI's unified AI gateway. Supports the native Anthropic message format including system prompts, extended thinking, tool use, and streaming.
   version: 1.0.0
   contact:
     name: osmAPI
     url: https://www.osmapi.com/
 servers:
-  - url: https://api.osmapi.com
-    description: Production
+- url: https://api.osmapi.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: OsmAPI Health API
 paths:
   /:
     get:
       operationId: healthCheck
       summary: Health check
-      description: >-
-        Returns the health status of the osmAPI service including connectivity
-        to Redis and database dependencies.
+      description: Returns the health status of the osmAPI service including connectivity to Redis and database dependencies.
       parameters:
-        - name: skip
-          in: query
-          schema:
-            type: string
-          description: Comma-separated list of health checks to skip (redis, database)
+      - name: skip
+        in: query
+        schema:
+          type: string
+        description: Comma-separated list of health checks to skip (redis, database)
       responses:
         '200':
           description: Service is healthy
@@ -38,6 +38,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HealthResponse'
+      tags:
+      - OsmAPI Health API
 components:
   schemas:
     HealthResponse:
@@ -66,3 +68,8 @@ components:
                   type: boolean
                 error:
                   type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token using osmAPI key (osmint_XXXXXXXXXXXXXXXX)

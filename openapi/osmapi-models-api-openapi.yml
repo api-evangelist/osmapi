@@ -1,36 +1,35 @@
 openapi: 3.1.0
 info:
-  title: osmAPI Models API
-  description: >-
-    Endpoint for listing all available AI models accessible through the osmAPI
-    gateway, including pricing, context length, supported parameters, provider
-    details, and deprecation status.
+  title: osmAPI Anthropic Messages Chat Models API
+  description: Anthropic-compatible messages endpoint routed through osmAPI's unified AI gateway. Supports the native Anthropic message format including system prompts, extended thinking, tool use, and streaming.
   version: 1.0.0
   contact:
     name: osmAPI
     url: https://www.osmapi.com/
 servers:
-  - url: https://api.osmapi.com/v1
-    description: Production
+- url: https://api.osmapi.com/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Models
 paths:
   /models:
     get:
       operationId: listModels
       summary: List available models
-      description: >-
-        Returns a list of all available AI models with detailed information
-        about each model including pricing, capabilities, and provider details.
+      description: Returns a list of all available AI models with detailed information about each model including pricing, capabilities, and provider details.
       parameters:
-        - name: include_deactivated
-          in: query
-          schema:
-            type: string
-          description: Include deactivated models in the response
-        - name: exclude_deprecated
-          in: query
-          schema:
-            type: string
-          description: Exclude deprecated models from the response
+      - name: include_deactivated
+        in: query
+        schema:
+          type: string
+        description: Include deactivated models in the response
+      - name: exclude_deprecated
+        in: query
+        schema:
+          type: string
+        description: Exclude deprecated models from the response
       responses:
         '200':
           description: Successful response with model list
@@ -39,16 +38,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ModelsResponse'
       tags:
-        - Models
+      - Models
 components:
   schemas:
-    ModelsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
     Model:
       type: object
       properties:
@@ -123,5 +115,15 @@ components:
           type: string
         stability:
           type: string
-tags:
-  - name: Models
+    ModelsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token using osmAPI key (osmint_XXXXXXXXXXXXXXXX)
