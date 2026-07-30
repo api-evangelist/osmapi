@@ -5,7 +5,20 @@ description: >-
   single API. Drop-in compatible with the OpenAI SDK, it provides smart routing, streaming, function calling, web
   search, response healing, embeddings, audio, and realtime endpoints.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/osmapi.png
 tags:
   - AI
   - Anthropic
@@ -18,66 +31,78 @@ created: '2026-03-21'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: osmapi:osmapi-chat-completions-api
-    name: osmAPI Chat Completions API
-    description: >-
-      OpenAI-compatible chat completions endpoint with smart routing, streaming, function calling, web search, and
-      response healing across multiple LLM providers.
-    humanURL: https://docs.osmapi.com/v1_chat_completions
-    baseURL: https://api.osmapi.com/v1
-    tags:
-      - AI
-      - Chat
-      - LLM
-      - Streaming
-    properties:
-      - type: Documentation
-        url: https://docs.osmapi.com/v1_chat_completions
-      - type: OpenAPI
-        url: openapi/osmapi-chat-completions-openapi.yml
-  - aid: osmapi:osmapi-anthropic-messages-api
-    name: osmAPI Anthropic Messages API
-    description: >-
-      Anthropic-compatible messages endpoint supporting system prompts, extended thinking, tool use, and streaming
-      through osmAPI's gateway.
-    humanURL: https://docs.osmapi.com/v1_messages
-    baseURL: https://api.osmapi.com/v1
-    tags:
-      - AI
-      - Anthropic
-      - Messages
-      - Tool Use
-    properties:
-      - type: Documentation
-        url: https://docs.osmapi.com/v1_messages
-      - type: OpenAPI
-        url: openapi/osmapi-anthropic-messages-openapi.yml
-  - aid: osmapi:osmapi-models-api
-    name: osmAPI Models API
-    description: Endpoint for listing available AI models with pricing, context length, capabilities, and provider details.
-    humanURL: https://docs.osmapi.com/v1_models
-    baseURL: https://api.osmapi.com/v1
-    tags:
-      - AI
-      - Models
-    properties:
-      - type: Documentation
-        url: https://docs.osmapi.com/v1_models
-      - type: OpenAPI
-        url: openapi/osmapi-models-openapi.yml
-  - aid: osmapi:osmapi-health-api
-    name: osmAPI Health API
-    description: Health check endpoint reporting service status and dependency connectivity.
-    humanURL: https://docs.osmapi.com/health
-    baseURL: https://api.osmapi.com
-    tags:
-      - Health
-      - Status
-    properties:
-      - type: Documentation
-        url: https://docs.osmapi.com/health
-      - type: OpenAPI
-        url: openapi/osmapi-health-openapi.yml
+- aid: osmapi:osmapi-chat-api
+  name: osmAPI Chat API
+  description: The Chat API from osmAPI — 1 operation(s) for chat.
+  humanURL: https://docs.osmapi.com/v1_chat_completions
+  baseURL: https://api.osmapi.com/v1
+  tags:
+  - Chat
+  properties:
+  - type: OpenAPI
+    url: openapi/osmapi-chat-api-openapi.yml
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_chat_completions
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_messages
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_models
+  - type: Documentation
+    url: https://docs.osmapi.com/health
+- aid: osmapi:osmapi-messages-api
+  name: osmAPI Messages API
+  description: The Messages API from osmAPI — 1 operation(s) for messages.
+  humanURL: https://docs.osmapi.com/v1_chat_completions
+  baseURL: https://api.osmapi.com/v1
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/osmapi-messages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_chat_completions
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_messages
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_models
+  - type: Documentation
+    url: https://docs.osmapi.com/health
+- aid: osmapi:osmapi-models-api
+  name: osmAPI Models API
+  description: The Models API from osmAPI — 1 operation(s) for models.
+  humanURL: https://docs.osmapi.com/v1_chat_completions
+  baseURL: https://api.osmapi.com/v1
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/osmapi-models-api-openapi.yml
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_chat_completions
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_messages
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_models
+  - type: Documentation
+    url: https://docs.osmapi.com/health
+- aid: osmapi:osmapi-osmapi-health-api-api
+  name: osmAPI OsmAPI Health API API
+  description: The OsmAPI Health API API from osmAPI — 1 operation(s) for osmapi health api.
+  humanURL: https://docs.osmapi.com/v1_chat_completions
+  baseURL: https://api.osmapi.com/v1
+  tags:
+  - OsmAPI Health API
+  properties:
+  - type: OpenAPI
+    url: openapi/osmapi-osmapi-health-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_chat_completions
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_messages
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_models
+  - type: Documentation
+    url: https://docs.osmapi.com/health
 common:
   - type: AgenticAccess
     url: agentic-access/osmapi-agentic-access.yml
