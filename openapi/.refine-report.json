@@ -1,0 +1,20 @@
+{
+  "provider": "osmapi",
+  "sources": [
+    "osmapi-chat-api-openapi.yml",
+    "osmapi-messages-api-openapi.yml",
+    "osmapi-models-api-openapi.yml",
+    "osmapi-osmapi-health-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "osmapi-chat-api-openapi.yml",
+    "osmapi-messages-api-openapi.yml",
+    "osmapi-models-api-openapi.yml",
+    "osmapi-osmapi-health-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
