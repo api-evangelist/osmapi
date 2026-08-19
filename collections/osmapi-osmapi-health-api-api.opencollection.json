@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "osmAPI Anthropic Messages Chat OsmAPI Health API API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OsmAPI Health API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.osmapi.com/v1/",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of health checks to skip (redis, database)"
+              }
+            ]
+          },
+          "docs": "Returns the health status of the osmAPI service including connectivity to Redis and database dependencies."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
