@@ -5,6 +5,18 @@ description: >-
   single API. Drop-in compatible with the OpenAI SDK, it provides smart routing, streaming, function calling, web
   search, response healing, embeddings, audio, and realtime endpoints.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
