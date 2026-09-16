@@ -1,9 +1,8 @@
 aid: osmapi
 name: osmAPI
-description: >-
-  osmAPI is a unified AI gateway that routes requests to OpenAI, Anthropic, Google, and 14+ LLM providers through a
-  single API. Drop-in compatible with the OpenAI SDK, it provides smart routing, streaming, function calling, web
-  search, response healing, embeddings, audio, and realtime endpoints.
+description: osmAPI is a unified AI gateway that routes requests to OpenAI, Anthropic, Google, and 14+
+  LLM providers through a single API. Drop-in compatible with the OpenAI SDK, it provides smart routing,
+  streaming, function calling, web search, response healing, embeddings, audio, and realtime endpoints.
 type: Index
 deliveryModel:
   model: saas
@@ -33,22 +32,22 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/osmapi.png
 tags:
-  - Artificial Intelligence
-  - Anthropic
-  - Gateway
-  - LLM
-  - OpenAI
-  - Routing
+- Artificial Intelligence
+- Anthropic
+- Gateway
+- LLM
+- OpenAI
+- Routing
 tags_raw:
-  - AI
-  - Anthropic
-  - Gateway
-  - LLM
-  - OpenAI
-  - Routing
+- AI
+- Anthropic
+- Gateway
+- LLM
+- OpenAI
+- Routing
 url: https://raw.githubusercontent.com/api-evangelist/osmapi/refs/heads/main/apis.yml
 created: '2026-03-21'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: osmapi:osmapi-chat-api
@@ -108,7 +107,7 @@ apis:
   - type: Documentation
     url: https://docs.osmapi.com/health
 - aid: osmapi:osmapi-osmapi-health-api-api
-  name: osmAPI OsmAPI Health API API
+  name: osmAPI Health API
   description: The OsmAPI Health API API from osmAPI — 1 operation(s) for osmapi health api.
   humanURL: https://docs.osmapi.com/v1_chat_completions
   baseURL: https://api.osmapi.com/v1
@@ -126,38 +125,38 @@ apis:
   - type: Documentation
     url: https://docs.osmapi.com/health
 common:
-  - type: AgenticAccess
-    url: agentic-access/osmapi-agentic-access.yml
-  - type: DomainSecurity
-    url: security/osmapi-domain-security.yml
-  - type: Authentication
-    url: authentication/osmapi-authentication.yml
-  - type: GitHubOrganization
-    url: https://github.com/openstreetmap
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/osm-api
-  - type: Portal
-    url: https://www.osmapi.com/
-  - type: Documentation
-    url: https://docs.osmapi.com/
-  - type: Dashboard
-    url: https://app.osmapi.com/
-  - type: Authentication
-    url: https://docs.osmapi.com/features/api-keys
-  - type: RateLimits
-    url: https://docs.osmapi.com/resources/rate-limits
-  - type: Routing
-    url: https://docs.osmapi.com/features/routing
-  - type: Caching
-    url: https://docs.osmapi.com/features/caching
-  - type: Pricing
-    url: https://docs.osmapi.com/features/cost-breakdown
-  - type: JSONLDContext
-    url: json-ld/osmapi-context.jsonld
-  - type: JSONSchema
-    url: json-schema/osmapi-chat-completion-schema.json
-  - type: JSONSchema
-    url: json-schema/osmapi-model-schema.json
+- type: AgenticAccess
+  url: agentic-access/osmapi-agentic-access.yml
+- type: DomainSecurity
+  url: security/osmapi-domain-security.yml
+- type: Authentication
+  url: authentication/osmapi-authentication.yml
+- type: GitHubOrganization
+  url: https://github.com/openstreetmap
+- type: LinkedIn
+  url: https://www.linkedin.com/company/osm-api
+- type: Portal
+  url: https://www.osmapi.com/
+- type: Documentation
+  url: https://docs.osmapi.com/
+- type: Dashboard
+  url: https://app.osmapi.com/
+- type: Authentication
+  url: https://docs.osmapi.com/features/api-keys
+- type: RateLimits
+  url: https://docs.osmapi.com/resources/rate-limits
+- type: Routing
+  url: https://docs.osmapi.com/features/routing
+- type: Caching
+  url: https://docs.osmapi.com/features/caching
+- type: Pricing
+  url: https://docs.osmapi.com/features/cost-breakdown
+- type: JSONLDContext
+  url: json-ld/osmapi-context.jsonld
+- type: JSONSchema
+  url: json-schema/osmapi-chat-completion-schema.json
+- type: JSONSchema
+  url: json-schema/osmapi-model-schema.json
 maintainers:
-  - FN: API Evangelist
-    email: info@apievangelist.com
+- FN: API Evangelist
+  email: info@apievangelist.com
