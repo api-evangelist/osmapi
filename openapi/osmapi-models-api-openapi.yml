@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: osmAPI Anthropic Messages Chat Models API
-  description: Anthropic-compatible messages endpoint routed through osmAPI's unified AI gateway. Supports the native Anthropic message format including system prompts, extended thinking, tool use, and streaming.
+  title: osmAPI Models API
+  description: Endpoint for listing all available AI models accessible through the osmAPI gateway, including pricing, context length, supported parameters, provider details, and deprecation status.
   version: 1.0.0
   contact:
     name: osmAPI
@@ -9,8 +9,6 @@ info:
 servers:
 - url: https://api.osmapi.com/v1
   description: Production
-security:
-- bearerAuth: []
 tags:
 - name: Models
 paths:
@@ -122,8 +120,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Model'
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: Bearer token using osmAPI key (osmint_XXXXXXXXXXXXXXXX)

@@ -1,20 +1,34 @@
 {
   "provider": "osmapi",
   "sources": [
-    "osmapi-chat-api-openapi.yml",
-    "osmapi-messages-api-openapi.yml",
-    "osmapi-models-api-openapi.yml",
-    "osmapi-osmapi-health-api-api-openapi.yml"
+    "_original/osmapi-anthropic-messages-openapi.yml",
+    "_original/osmapi-chat-completions-openapi.yml",
+    "_original/osmapi-health-openapi.yml",
+    "_original/osmapi-models-openapi.yml"
   ],
   "outputs": [
-    "osmapi-chat-api-openapi.yml",
     "osmapi-messages-api-openapi.yml",
-    "osmapi-models-api-openapi.yml",
-    "osmapi-osmapi-health-api-api-openapi.yml"
+    "osmapi-chat-api-openapi.yml",
+    "osmapi-osmapi-health-api-api-openapi.yml",
+    "osmapi-models-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "osmapi-anthropic-messages-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "osmapi-chat-completions-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "osmapi-health-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "osmapi-health-openapi.yml: tagged paths GET / -> OsmAPI Health API",
+    "osmapi-health-openapi.yml: declared missing tag: OsmAPI Health API",
+    "osmapi-models-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "osmapi-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "osmapi-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "osmapi-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "osmapi-osmapi-health-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
