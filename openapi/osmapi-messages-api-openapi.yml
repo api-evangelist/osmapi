@@ -48,18 +48,6 @@ paths:
       - Messages
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
     MessageResponse:
       type: object
       properties:
@@ -177,6 +165,18 @@ components:
         service_tier:
           type: string
           description: Service tier specification
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
   securitySchemes:
     bearerAuth:
       type: http

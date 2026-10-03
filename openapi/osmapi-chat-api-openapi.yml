@@ -48,23 +48,37 @@ paths:
       - Chat
 components:
   schemas:
-    Usage:
+    ChatCompletionResponse:
       type: object
       properties:
-        prompt_tokens:
+        id:
+          type: string
+        object:
+          type: string
+        created:
           type: integer
-        completion_tokens:
-          type: integer
-        total_tokens:
-          type: integer
-        reasoning_tokens:
-          type: integer
-        cost_usd_total:
-          type: number
-        cost_usd_input:
-          type: number
-        cost_usd_output:
-          type: number
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Choice'
+        usage:
+          $ref: '#/components/schemas/Usage'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+            type:
+              type: string
+            code:
+              type: string
     Choice:
       type: object
       properties:
@@ -88,6 +102,15 @@ components:
               items:
                 type: string
         finish_reason:
+          type: string
+    Metadata:
+      type: object
+      properties:
+        requested_model:
+          type: string
+        used_model:
+          type: string
+        used_provider:
           type: string
     Message:
       type: object
@@ -117,27 +140,23 @@ components:
           type: array
           items:
             type: object
-    ErrorResponse:
+    Usage:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            message:
-              type: string
-            type:
-              type: string
-            code:
-              type: string
-    Metadata:
-      type: object
-      properties:
-        requested_model:
-          type: string
-        used_model:
-          type: string
-        used_provider:
-          type: string
+        prompt_tokens:
+          type: integer
+        completion_tokens:
+          type: integer
+        total_tokens:
+          type: integer
+        reasoning_tokens:
+          type: integer
+        cost_usd_total:
+          type: number
+        cost_usd_input:
+          type: number
+        cost_usd_output:
+          type: number
     ChatCompletionRequest:
       type: object
       required:
@@ -216,25 +235,6 @@ components:
           items:
             type: string
           description: Extended functionality plugins (e.g., response-healing)
-    ChatCompletionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        object:
-          type: string
-        created:
-          type: integer
-        model:
-          type: string
-        choices:
-          type: array
-          items:
-            $ref: '#/components/schemas/Choice'
-        usage:
-          $ref: '#/components/schemas/Usage'
-        metadata:
-          $ref: '#/components/schemas/Metadata'
   securitySchemes:
     bearerAuth:
       type: http
