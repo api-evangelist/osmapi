@@ -50,24 +50,6 @@ created: '2026-03-21'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-- aid: osmapi:osmapi-chat-api
-  name: osmAPI Chat API
-  description: The Chat API from osmAPI — 1 operation(s) for chat.
-  humanURL: https://docs.osmapi.com/v1_chat_completions
-  baseURL: https://api.osmapi.com/v1
-  tags:
-  - Chat
-  properties:
-  - type: OpenAPI
-    url: openapi/osmapi-chat-api-openapi.yml
-  - type: Documentation
-    url: https://docs.osmapi.com/v1_chat_completions
-  - type: Documentation
-    url: https://docs.osmapi.com/v1_messages
-  - type: Documentation
-    url: https://docs.osmapi.com/v1_models
-  - type: Documentation
-    url: https://docs.osmapi.com/health
 - aid: osmapi:osmapi-messages-api
   name: osmAPI Messages API
   description: The Messages API from osmAPI — 1 operation(s) for messages.
@@ -116,6 +98,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/osmapi-osmapi-health-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_chat_completions
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_messages
+  - type: Documentation
+    url: https://docs.osmapi.com/v1_models
+  - type: Documentation
+    url: https://docs.osmapi.com/health
+- aid: osmapi:osmapi-chat-completions-api
+  name: osmAPI Chat Completions API
+  description: The Chat Completions API from osmAPI — 1 operation(s) for chat completions.
+  humanURL: https://docs.osmapi.com/v1_chat_completions
+  baseURL: https://api.osmapi.com/v1
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/osmapi-chat-completions-api-openapi.yml
   - type: Documentation
     url: https://docs.osmapi.com/v1_chat_completions
   - type: Documentation
