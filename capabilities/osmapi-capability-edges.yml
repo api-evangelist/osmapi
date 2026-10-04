@@ -1,0 +1,39 @@
+slug: osmapi
+provider: osmAPI
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Chat
+  spec_file: osmapi-chat-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.75
+  evidence: OpenAI-compatible chat completions endpoint routed through osmAPI's unified AI gateway ...
+    smart routing across OpenAI, Anthropic, Google, and 14+ LLM providers
+  reason: The operation invokes large-language-model inference (createChatCompletion) through an AI gateway.
+    For a buyer this realises AI/ML capability operation — Artificial Intelligence Management — rather
+    than any customer-service or messaging capability; 'Chat' here is LLM completion, not a conversational
+    support channel. Confidence held at 0.75 because the capability definition emphasises model lifecycle/MLOps
+    while this surface is inference serving.
+- tag: Messages
+  spec_file: osmapi-messages-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: Anthropic-compatible messages endpoint routed through osmAPI's unified AI gateway. Supports
+    the native Anthropic message format including system prompts, extended thinking, tool use, and streaming.
+  reason: Despite the business-sounding tag, 'Messages' is the Anthropic LLM request format (MessageRequest/MessageResponse)
+    — model inference, not corporate or customer communications. Maps to Artificial Intelligence Management;
+    0.7 given it is inference serving rather than model lifecycle governance.

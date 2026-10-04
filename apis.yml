@@ -125,6 +125,9 @@ apis:
   - type: Documentation
     url: https://docs.osmapi.com/health
 common:
+- type: CapabilityMap
+  url: capabilities/osmapi-capability-edges.yml
+  name: osmAPI Business Capability Map
 - type: Website
   url: https://osmapi.com
 - type: AgenticAccess
