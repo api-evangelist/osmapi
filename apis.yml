@@ -125,6 +125,10 @@ apis:
   - type: Documentation
     url: https://docs.osmapi.com/health
 common:
+- type: Plans
+  url: plans/osmapi-plans-pricing.yml
+- type: FinOps
+  url: finops/osmapi-finops.yml
 - type: CapabilityMap
   url: capabilities/osmapi-capability-edges.yml
   name: osmAPI Business Capability Map
