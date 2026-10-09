@@ -139,3 +139,44 @@ plans:
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - request
+  - token
+  plans:
+  - name: Free Models
+    access: freemium
+    model: subscription
+    model_how: derived
+    units:
+    - request
+    - token
+    periods:
+    - minute
+    - per-use
+  - name: Paid Models (Pay-As-You-Go)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - other
+    - request
+    - token
+    periods:
+    - minute
+    - per-use
+  - name: Enterprise
+    access: enterprise
+    model: metered
+    model_how: derived
+    units:
+    - request
+    - token
+    periods:
+    - minute
+    - per-use
