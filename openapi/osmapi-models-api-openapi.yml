@@ -39,6 +39,13 @@ paths:
       - Models
 components:
   schemas:
+    ModelsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
     Model:
       type: object
       properties:
@@ -113,10 +120,3 @@ components:
           type: string
         stability:
           type: string
-    ModelsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
