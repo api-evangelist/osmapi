@@ -1,4 +1,4 @@
-# osmAPI (osmapi)
+# osmAPI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,125 +66,144 @@
 
 osmAPI is a unified AI gateway that routes requests to OpenAI, Anthropic, Google, and 14+ LLM providers through a single API. Drop-in compatible with the OpenAI SDK, it provides smart routing, streaming, function calling, web search, response healing, embeddings, audio, and realtime endpoints.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/osmapi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/osmapi/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Anthropic · Gateways · LLM · OpenAI · Routing
 
-## Scope
+## osmAPI on APIs.io
 
-- **Type:** Index
+Everything profiled for osmAPI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/osmapi/](https://apis.io/providers/osmapi/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- AI
-- Anthropic
-- Gateway
-- LLM
-- OpenAI
-- Routing
+- [osmAPI Messages API](https://apis.io/apis/osmapi/osmapi-messages-api/) — The Messages API from osmAPI — 1 operation(s) for messages.
+- [osmAPI Models API](https://apis.io/apis/osmapi/osmapi-models-api/) — The Models API from osmAPI — 1 operation(s) for models.
+- [osmAPI Health API](https://apis.io/apis/osmapi/osmapi-osmapi-health-api-api/) — The OsmAPI Health API API from osmAPI — 1 operation(s) for osmapi health api.
+- [osmAPI Chat Completions API](https://apis.io/apis/osmapi/osmapi-chat-completions-api/) — The Chat Completions API from osmAPI — 1 operation(s) for chat completions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### osmAPI Chat Completions API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-OpenAI-compatible chat completions endpoint with smart routing, streaming, function calling, web search, and response healing across multiple LLM providers.
+- [Osmapi Agentic Access](https://apis.io/agentic-access/osmapi/osmapi-agentic-access/)
 
-- **Human URL:** [https://docs.osmapi.com/v1_chat_completions](https://docs.osmapi.com/v1_chat_completions)
-- **Base URL:** `https://api.osmapi.com/v1`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- AI
-- Chat
-- LLM
-- Streaming
+- [osmAPI Chat Completion Response](https://apis.io/schemas/osmapi/osmapi-chat-completion/)
+- [osmAPI Model](https://apis.io/schemas/osmapi/osmapi-model/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://docs.osmapi.com/v1_chat_completions)
-- [OpenAPI](openapi/osmapi-chat-completions-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/osmapi-chat-completions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/osmapi-chat-completions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Linked-data contexts for the provider's vocabulary.
 
-### osmAPI Anthropic Messages API
+- [Osmapi Context](https://apis.io/jsonld/osmapi/osmapi-context/)
 
-Anthropic-compatible messages endpoint supporting system prompts, extended thinking, tool use, and streaming through osmAPI's gateway.
+#### Collections (8)
 
-- **Human URL:** [https://docs.osmapi.com/v1_messages](https://docs.osmapi.com/v1_messages)
-- **Base URL:** `https://api.osmapi.com/v1`
+Postman and Open Collection request collections.
 
-#### Tags
+- [osmAPI Anthropic Messages API](https://apis.io/collections/osmapi/open-osmapi-anthropic-messages/)
+- [osmAPI Anthropic Messages Chat API](https://apis.io/collections/osmapi/open-osmapi-chat-api/)
+- [osmAPI Chat Completions API](https://apis.io/collections/osmapi/open-osmapi-chat-completions/)
+- [osmAPI Health API](https://apis.io/collections/osmapi/open-osmapi-health/)
+- [osmAPI Anthropic Chat Messages API](https://apis.io/collections/osmapi/open-osmapi-messages-api/)
+- [osmAPI Models API](https://apis.io/collections/osmapi/open-osmapi-models/)
+- [osmAPI Anthropic Messages Chat Models API](https://apis.io/collections/osmapi/open-osmapi-models-api/)
+- [osmAPI Anthropic Messages Chat OsmAPI Health API API](https://apis.io/collections/osmapi/open-osmapi-osmapi-health-api-api/)
 
-- AI
-- Anthropic
-- Messages
-- Tool Use
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://docs.osmapi.com/v1_messages)
-- [OpenAPI](openapi/osmapi-anthropic-messages-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/osmapi-anthropic-messages.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/osmapi-anthropic-messages.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [osmAPI — jsonschema rules](https://apis.io/rules/osmapi/osmapi-jsonschema-spectral-rules/)
 
-### osmAPI Models API
+#### Security (2)
 
-Endpoint for listing available AI models with pricing, context length, capabilities, and provider details.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.osmapi.com/v1_models](https://docs.osmapi.com/v1_models)
-- **Base URL:** `https://api.osmapi.com/v1`
+- [Osmapi Authentication](https://apis.io/security/osmapi/osmapi-authentication/)
+- [Osmapi Domain Security](https://apis.io/security/osmapi/osmapi-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- AI
-- Models
+Published plans, tiers and prices.
 
-#### Properties
+- [Osmapi Plans Pricing](https://apis.io/plans/osmapi/osmapi-plans-pricing/)
 
-- [Documentation](https://docs.osmapi.com/v1_models)
-- [OpenAPI](openapi/osmapi-models-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/osmapi-models.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/osmapi-models.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### osmAPI Health API
+Published request limits.
 
-Health check endpoint reporting service status and dependency connectivity.
+- [Osmapi Rate Limits](https://apis.io/rate-limits/osmapi/osmapi-rate-limits/)
 
-- **Human URL:** [https://docs.osmapi.com/health](https://docs.osmapi.com/health)
-- **Base URL:** `https://api.osmapi.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Health
-- Status
+- [Osmapi Finops](https://apis.io/finops/osmapi/osmapi-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.osmapi.com/health)
-- [OpenAPI](openapi/osmapi-health-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/osmapi-health.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/osmapi-health.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
-
-- [GitHub Organization](https://github.com/openstreetmap)
-- [LinkedIn](https://www.linkedin.com/company/osm-api)
-- [Portal](https://www.osmapi.com/)
+- [Website](https://osmapi.com)
 - [Documentation](https://docs.osmapi.com/)
-- [Dashboard](https://app.osmapi.com/)
-- [Authentication](https://docs.osmapi.com/features/api-keys)
-- [Rate Limits](https://docs.osmapi.com/resources/rate-limits)
-- [Routing](https://docs.osmapi.com/features/routing)
-- [Caching](https://docs.osmapi.com/features/caching)
 - [Pricing](https://docs.osmapi.com/features/cost-breakdown)
-- [J S O N L D Context](json-ld/osmapi-context.jsonld)
-- [JSON Schema](json-schema/osmapi-chat-completion-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/osmapi-model-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [GitHub](https://github.com/openstreetmap)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** API Evangelist
-**Email:** info@apievangelist.com
+**Kin Score 28.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 51.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 20.2 |
+| Access clarity | 13.2 |
+
+**Agent readiness 25.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/osmapi/](https://apis.io/providers/osmapi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for osmAPI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/osmapi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
